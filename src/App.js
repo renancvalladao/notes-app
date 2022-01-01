@@ -16,6 +16,16 @@ function App() {
     setNotes(prevState => [newNote, ...prevState])
   }
 
+  useEffect(() => {
+    let notes = localStorage.getItem('notes')
+    notes = JSON.parse(notes)
+    setNotes(notes)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes)) 
+  }, [notes])
+
   useEffect(
     () => {
       const listener = (event) => {
