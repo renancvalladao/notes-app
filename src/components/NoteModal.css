@@ -1,4 +1,4 @@
-.modal-background {
+.note-modal-background {
     top: 0%;
     position: fixed;
     height: 100%;
@@ -18,7 +18,7 @@
     margin: auto;
 }
 
-.note-text-modal {
+.note-modal-text {
     font-size: large;
     width: 80%;
     height: 80%;
@@ -26,9 +26,10 @@
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     overflow-y: scroll;
+    white-space: pre-wrap;
 }
 
-.note-input-modal {
+.note-modal-input {
     font-size: large;
     width: 80%;
     height: 80%;
@@ -42,5 +43,47 @@
     border: none;
     outline: none;
     resize: none;
-    background-color: yellow;
+    background-color: beige;
+}
+
+.note-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10%;
+    height: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 90%;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.note-modal-buttons button {
+    border-radius: 16px;
+    height: 66px;
+    width: 66px;
+    font-size: large;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: all ease 0.1s;
+    margin-bottom: 20px;
+}
+
+.note-modal-buttons button:active {
+    transform: scale(0.95);
+}
+
+.save-button {
+    background-color: mediumseagreen;
+}
+
+.edit-button {
+    background-color: darkgoldenrod;
+}
+
+.delete-button {
+    background-color: crimson;
 }

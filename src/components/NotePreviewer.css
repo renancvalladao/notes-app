@@ -18,4 +18,5 @@
     width: 215px;
     height: 215px;
     overflow: hidden;
+    white-space: pre-wrap;
 }

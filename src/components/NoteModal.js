@@ -1,24 +1,31 @@
 import { useState, forwardRef } from "react"
 import './NoteModal.css'
 
-const NoteModal = forwardRef((props, ref) => {
+const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
 
+    const [input, setInput] = useState(note.data)
     const [edit, setEdit] = useState(false)
 
     return (
-        <div className='modal-background'>
+        <div className='note-modal-background'>
             <div ref={ref} className='note-modal'>
                 {edit ?
-                    <textarea className='note-input-modal' autoFocus>
-                        This is a note
-                        This is a note
-                    </textarea>
+                    <textarea className='note-modal-input' autoFocus value={input} onChange={(e) => setInput(e.target.value)} spellCheck={false} />
                     :
-                    <div className='note-text-modal' onClick={() => setEdit(true)}>
-                        This is a note
-                        This is a note
+                    <div className='note-modal-text'>
+                        {note.data}
                     </div>
                 }
+                <div className="note-modal-buttons">
+                    {edit ?
+                        <button className="save-button" onClick={() => {
+                            setEdit(false)
+                            onSave(input)
+
+                        }}>Save</button> :
+                        <button className="edit-button" onClick={() => setEdit(true)}>Edit</button>}
+                    <button className="delete-button" onClick={onDelete}>Delete</button>
+                </div>
             </div>
         </div>
     )

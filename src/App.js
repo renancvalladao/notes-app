@@ -6,9 +6,15 @@ import NoteModal from './components/NoteModal'
 function App() {
 
   const [notes, setNotes] = useState([])
-  const [showModal, setShowModal] = useState(false)
+  const [modalIndex, setModalIndex] = useState(null)
 
   const ref = useRef()
+
+  const addNewNote = () => {
+    const createdAt = new Date()
+    const newNote = { createdAt, data: '' }
+    setNotes(prevState => [newNote, ...prevState])
+  }
 
   useEffect(
     () => {
@@ -16,7 +22,7 @@ function App() {
         if (!ref.current || ref.current.contains(event.target)) {
           return
         }
-        setShowModal(false)
+        setModalIndex(null)
       }
       document.addEventListener("mousedown", listener)
       document.addEventListener("touchstart", listener)
@@ -32,38 +38,35 @@ function App() {
     <>
       <div className="app">
         <div className="new-note">
-          <button>+</button>
+          <button onClick={addNewNote}>+</button>
           <span>New Note</span>
         </div>
         <div className="notes-container">
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
-          <NotePreviewer onClick={() => setShowModal(true)} />
+          {notes.map((note, index) => (
+            <NotePreviewer key={index} note={note} onClick={() => setModalIndex(index)} />
+          ))}
         </div>
       </div>
-      {showModal && <NoteModal ref={ref} />}
+      {modalIndex !== null &&
+        <NoteModal
+          ref={ref}
+          note={notes[modalIndex]}
+          onSave={newData => {
+            const newNote = { ...notes[modalIndex] }
+            newNote.data = newData
+            const newNotes = [...notes]
+            newNotes[modalIndex] = newNote
+            setNotes(newNotes)
+          }}
+          onDelete={() => {
+            console.log(notes)
+            const newNotes = [...notes]
+            newNotes.splice(modalIndex, 1)
+            console.log(newNotes)
+            setNotes(newNotes)
+            setModalIndex(null)
+          }}
+        />}
     </>
   )
 }

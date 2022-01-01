@@ -1,40 +1,11 @@
 import './NotePreviewer.css'
 
-const NotePreviewer = ({ onClick }) => {
+const NotePreviewer = ({ onClick, note }) => {
 
     return (
         <div className='note-previewer' onClick={onClick}>
             <div className='note-previewer-text'>
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
-                This is a note
+                {note.data}
             </div>
         </div>
     )
