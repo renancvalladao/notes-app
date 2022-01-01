@@ -1,0 +1,46 @@
+.modal-background {
+    top: 0%;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(48, 48, 48, 0.2);
+}
+
+.note-modal {
+    background-color: yellow;
+    border-radius: 20px;
+    box-shadow: lightslategray 2px 6px 8px 0px;
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+}
+
+.note-text-modal {
+    font-size: large;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow-y: scroll;
+}
+
+.note-input-modal {
+    font-size: large;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow-y: scroll;
+}
+
+.note-modal textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: yellow;
+}

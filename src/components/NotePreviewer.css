@@ -1,0 +1,21 @@
+.note-previewer {
+    background-color: yellow;
+    border-radius: 20px;
+    margin-right: 80px;
+    margin-bottom: 80px;
+    transition: all ease 0.2s;
+    box-shadow: lightslategray 2px 6px 8px 0px;
+    padding: 20px;
+    
+}
+
+.note-previewer:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.note-previewer-text {
+    width: 215px;
+    height: 215px;
+    overflow: hidden;
+}
