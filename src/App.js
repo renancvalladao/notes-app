@@ -16,6 +16,7 @@ function App() {
     const createdAt = new Date()
     const newNote = { createdAt, data: '' }
     setNotes(prevState => [newNote, ...prevState])
+    setModalIndex(0)
   }
 
   useEffect(() => {
