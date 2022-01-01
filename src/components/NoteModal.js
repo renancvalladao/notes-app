@@ -34,6 +34,7 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
                 </div>
+                <p className="note-modal-date">Created at {note.createdAt}</p>
             </div>
         </div>
     )

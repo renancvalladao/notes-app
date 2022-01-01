@@ -87,3 +87,10 @@
 .delete-button {
     background-color: crimson;
 }
+
+.note-modal-date {
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 10%;
+    margin-top: 3%;
+}

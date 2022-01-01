@@ -17,7 +17,7 @@ body {
     margin-bottom: 80px;
 }
 
-.new-note button {
+.new-note button, .new-note-fixed button {
     background-color: mediumseagreen;
     border-radius: 50%;
     height: 66px;
@@ -30,7 +30,7 @@ body {
     transition: all ease 0.1s;
 }
 
-.new-note button:active {
+.new-note button:active, .new-note-fixed button:active {
     transform: scale(0.9);
 }
 
@@ -46,4 +46,10 @@ body {
 .notes-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.new-note-fixed {
+    position: sticky;
+    bottom: 8%;
+    margin-left: 92%;
 }

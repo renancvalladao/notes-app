@@ -9,15 +9,45 @@ function App() {
 
   const [notes, setNotes] = useState([])
   const [modalIndex, setModalIndex] = useState(null)
+  const [stickButton, setStickButton] = useState(false)
 
   const ref = useRef()
 
   const addNewNote = () => {
-    const createdAt = new Date()
+    const date = new Date()
+    const year = date.getFullYear()
+    let month = date.getMonth() + 1
+    month = month < 10 ? `0${month}` : month
+    let day = date.getDate() + 1
+    day = day < 10 ? `0${day}` : day
+    let hours = date.getHours()
+    hours = hours < 10 ? `0${hours}` : hours
+    let minutes = date.getMinutes()
+    minutes = minutes < 10 ? `0${minutes}` : minutes
+    let seconds = date.getSeconds()
+    seconds = seconds < 10 ? `0${seconds}` : seconds
+    const createdAt = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
     const newNote = { createdAt, data: '' }
     setNotes(prevState => [newNote, ...prevState])
     setModalIndex(0)
   }
+
+  useEffect(() => {
+    const scrollListener = () => {
+      console.log(window.scrollY)
+      if (window.scrollY > 190) {
+        setStickButton(true)
+      } else {
+        setStickButton(false)
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener)
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
 
   useEffect(() => {
     let notes = localStorage.getItem('notes')
@@ -26,7 +56,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(notes)) 
+    localStorage.setItem('notes', JSON.stringify(notes))
   }, [notes])
 
   useEffect(
@@ -62,6 +92,12 @@ function App() {
           ))}
         </div>
       </div>
+      {stickButton &&
+      <div className="new-note-fixed">
+        <button onClick={addNewNote}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
+      </div>}
       {modalIndex !== null &&
         <NoteModal
           ref={ref}

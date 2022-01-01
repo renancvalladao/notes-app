@@ -21,3 +21,11 @@
     word-wrap: break-word;
     white-space: pre-wrap;
 }
+
+.note-previewer-date {
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 4px;
+    text-align: center;
+}
