@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import NoteModal from './components/NoteModal'
 import NotePreviewer from './components/NotePreviewer'
 import './App.css'
-import NoteModal from './components/NoteModal'
-// trocar o "+" pelo icone do font awesome
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 function App() {
 
   const [notes, setNotes] = useState([])
@@ -48,7 +50,9 @@ function App() {
     <>
       <div className="app">
         <div className="new-note">
-          <button onClick={addNewNote}>+</button>
+          <button onClick={addNewNote}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
           <span>New Note</span>
         </div>
         <div className="notes-container">

@@ -1,5 +1,7 @@
 import { useState, forwardRef } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './NoteModal.css'
+import { faSave, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
 
@@ -22,9 +24,15 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
                             setEdit(false)
                             onSave(input)
 
-                        }}>Save</button> :
-                        <button className="edit-button" onClick={() => setEdit(true)}>Edit</button>}
-                    <button className="delete-button" onClick={onDelete}>Delete</button>
+                        }}>
+                            <FontAwesomeIcon icon={faSave} />
+                        </button> :
+                        <button className="edit-button" onClick={() => setEdit(true)}>
+                            <FontAwesomeIcon icon={faEdit} />
+                        </button>}
+                    <button className="delete-button" onClick={onDelete}>
+                        <FontAwesomeIcon icon={faTrash} />
+                    </button>
                 </div>
             </div>
         </div>

@@ -62,9 +62,9 @@
 
 .note-modal-buttons button {
     border-radius: 16px;
-    height: 66px;
-    width: 66px;
-    font-size: large;
+    height: 60px;
+    width: 60px;
+    font-size: 36px;
     border: none;
     color: white;
     cursor: pointer;
