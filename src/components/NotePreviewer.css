@@ -17,6 +17,7 @@
 .note-previewer-text {
     width: 215px;
     height: 215px;
-    overflow: hidden;
+    overflow-y: hidden;
+    word-wrap: break-word;
     white-space: pre-wrap;
 }

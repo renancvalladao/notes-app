@@ -27,6 +27,7 @@
     top: 0; left: 0; bottom: 0; right: 0;
     overflow-y: scroll;
     white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .note-modal-input {
