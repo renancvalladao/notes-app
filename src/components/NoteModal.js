@@ -1,5 +1,6 @@
 import { useState, forwardRef, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ReactMarkdown from 'react-markdown'
 import './NoteModal.css'
 import { faSave, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
@@ -21,7 +22,7 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
                     <textarea className='note-modal-input' onBlur={() => focus()} autoFocus value={input} onChange={(e) => setInput(e.target.value)} spellCheck={false} ref={textAreaRef} />
                     :
                     <div className='note-modal-text' onClick={() => console.log('asdasd')}>
-                        {note.data}
+                        <ReactMarkdown>{note.data}</ReactMarkdown>
                     </div>
                 }
                 <div className="note-modal-buttons">
