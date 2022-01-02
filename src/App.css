@@ -10,7 +10,8 @@ body {
 }
 
 .app {
-    margin: 88px;
+    margin-top: 88px;
+    margin-left: 88px;
 }
 
 .new-note {
