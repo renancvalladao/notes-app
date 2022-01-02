@@ -11,6 +11,7 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
     return (
         <div className='note-modal-background'>
             <div ref={ref} className='note-modal'>
+                <p className="note-modal-date">Created at {note.createdAt}</p>
                 {edit ?
                     <textarea className='note-modal-input' autoFocus value={input} onChange={(e) => setInput(e.target.value)} spellCheck={false} />
                     :
@@ -34,7 +35,6 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
                         <FontAwesomeIcon icon={faTrash} />
                     </button>
                 </div>
-                <p className="note-modal-date">Created at {note.createdAt}</p>
             </div>
         </div>
     )
