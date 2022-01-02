@@ -61,23 +61,20 @@ function App() {
     localStorage.setItem('notes', JSON.stringify(notes))
   }, [notes])
 
-  useEffect(
-    () => {
-      const listener = (event) => {
-        if (!ref.current || ref.current.contains(event.target)) {
-          return
-        }
-        setModalIndex(null)
+  useEffect(() => {
+    const listener = (event) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return
       }
-      document.addEventListener("mousedown", listener)
-      document.addEventListener("touchstart", listener)
-      return () => {
-        document.removeEventListener("mousedown", listener)
-        document.removeEventListener("touchstart", listener)
-      }
-    },
-    [ref]
-  )
+      setModalIndex(null)
+    }
+    document.addEventListener("mousedown", listener)
+    document.addEventListener("touchstart", listener)
+    return () => {
+      document.removeEventListener("mousedown", listener)
+      document.removeEventListener("touchstart", listener)
+    }
+  }, [ref])
 
   return (
     <>
@@ -95,11 +92,11 @@ function App() {
         </div>
       </div>
       {stickButton &&
-      <div className="new-note-fixed">
-        <button onClick={addNewNote}>
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
-      </div>}
+        <div className="new-note-fixed">
+          <button onClick={addNewNote}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        </div>}
       {modalIndex !== null &&
         <NoteModal
           ref={ref}
