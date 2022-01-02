@@ -51,8 +51,10 @@ function App() {
 
   useEffect(() => {
     let notes = localStorage.getItem('notes')
-    notes = JSON.parse(notes)
-    setNotes(notes)
+    if (notes) {
+      notes = JSON.parse(notes)
+      setNotes(notes)
+    }
   }, [])
 
   useEffect(() => {
