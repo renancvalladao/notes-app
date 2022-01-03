@@ -1,6 +1,8 @@
 .note-modal-background {
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -15,7 +17,10 @@
     height: 80%;
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .note-modal-text {
@@ -24,7 +29,10 @@
     height: 80%;
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     overflow-y: scroll;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -36,7 +44,10 @@
     height: 80%;
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     overflow-y: scroll;
 }
 
@@ -57,7 +68,10 @@
     margin-bottom: auto;
     margin-left: 90%;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .note-modal-buttons button {
@@ -109,7 +123,7 @@
         height: 70%;
         margin: auto;
     }
-    
+
     .note-modal-input {
         font-size: large;
         width: 80%;
@@ -130,7 +144,7 @@
         height: 85%;
         margin-left: 10%;
     }
-    
+
     .note-modal-input {
         width: 60%;
         height: 85%;
