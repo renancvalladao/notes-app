@@ -1,6 +1,7 @@
 import { useState, forwardRef, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import './NoteModal.css'
 import { faSave, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
@@ -19,10 +20,16 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
             <div ref={ref} className='note-modal'>
                 <p className="note-modal-date">Created at {note.createdAt}</p>
                 {edit ?
-                    <textarea className='note-modal-input' onBlur={() => focus()} autoFocus value={input} onChange={(e) => setInput(e.target.value)} spellCheck={false} ref={textAreaRef} />
+                    <textarea className='note-modal-input'
+                        onBlur={() => focus()}
+                        autoFocus value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        spellCheck={false}
+                        ref={textAreaRef}
+                        placeholder="Write in Markdown format" />
                     :
                     <div className='note-modal-text' onClick={() => console.log('asdasd')}>
-                        <ReactMarkdown>{note.data}</ReactMarkdown>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{note.data}</ReactMarkdown>
                     </div>
                 }
                 <div className="note-modal-buttons">
