@@ -16,7 +16,7 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
     }
 
     return (
-        <div className='note-modal-background'>
+        <>
             <div ref={ref} className='note-modal'>
                 <p className="note-modal-date">Created at {note.createdAt}</p>
                 {edit ?
@@ -49,7 +49,9 @@ const NoteModal = forwardRef(({ note, onSave, onDelete }, ref) => {
                     </button>
                 </div>
             </div>
-        </div>
+            <div className='note-modal-background'>
+            </div>
+        </>
     )
 })
 
