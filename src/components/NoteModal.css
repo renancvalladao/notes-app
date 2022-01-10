@@ -110,7 +110,7 @@
     margin-top: 3%;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 450px) {
     .note-modal {
         border-radius: 20px;
         box-shadow: lightslategray 2px 6px 8px 0px;

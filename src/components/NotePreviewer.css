@@ -1,8 +1,8 @@
 .note-previewer {
     background-color: yellow;
     border-radius: 20px;
-    margin-right: 80px;
-    margin-bottom: 80px;
+    margin-right: 70px;
+    margin-bottom: 70px;
     transition: all ease 0.2s;
     box-shadow: lightslategray 2px 6px 8px 0px;
     padding: 20px;
@@ -30,7 +30,7 @@
     margin: 0;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 450px) {
     .note-previewer {
         margin-right: 0px;
     }
